@@ -1,18 +1,18 @@
-'use client'
+"use client";
 import "../global.css";
 // import { Analytics } from "./components/analytics";
 import { ThemeProvider } from "next-themes";
 import { Header } from "./components/Header";
 import Particles from "./components/particles";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname()
-  const isHome = pathname === '/'
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -35,29 +35,18 @@ export default function RootLayout({
                 ease={10}
               />
             </div>
-            
-            {/* Content container with background starting from top */}
-            <div className="relative">
+            <Header />
+            <main className="relative">
               {!isHome ? (
-                <div className="absolute inset-0 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                  <div className="mx-4 sm:mx-8 h-full min-h-screen dark:bg-zinc-900 bg-white backdrop-blur-sm rounded-lg" />
+                <div className="absolute inset-0 max-w-7xl mx-auto">
+                  <div className="h-full min-h-screen bg-zinc-900/80 backdrop-blur-sm rounded-lg" />
                 </div>
-              ) : null}
-              
-              <Header />
-              
-              <main className="relative">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                  <div className="mx-4 sm:mx-8">
-                    <div className="mx-auto max-w-6xl">
-                      <div className="p-8">
-                        {children}
-                      </div>
-                    </div>
-                  </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center min-h-screen">
+                  {children}
                 </div>
-              </main>
-            </div>
+              )}
+            </main>
           </div>
         </ThemeProvider>
       </body>
