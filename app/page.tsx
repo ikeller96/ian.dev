@@ -1,13 +1,6 @@
-import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
-import AnimatedText from "./components/TypingText";
 import TypingText from "./components/TypingText";
-
-const navigation = [
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
-];
 
 export default function Home() {
   return (
