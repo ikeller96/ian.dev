@@ -30,9 +30,10 @@ export default function RootLayout({
             <div className="fixed inset-0 bg-gradient-to-tl from-black via-zinc-400/25 to-black">
               <Particles
                 className="absolute inset-0 -z-10 animate-fade-in"
-                quantity={250}
-                staticity={10}
-                ease={10}
+                quantity={450}
+                staticity={5}
+                ease={50}
+                refresh={true}
               />
             </div>
             <Header />
